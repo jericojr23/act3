@@ -5,9 +5,10 @@ import {
 	Button,
 	TextInput,
 	FlatList,
+	ScrollView
 } from "react-native";
 import { useState } from "react";
-import { ScrollView } from "react-native-web";
+import GoalItem from '.components/GoalItem'
 
 export default function App() {
 	const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -52,22 +53,12 @@ export default function App() {
 			</View>
 			<Text style={styles.header}>List of Goals</Text>
 			<View style={styles.goalsContainer}>
-				<ScrollView>
 					<FlatList
 						data={courseGoals}
 						renderItem={(itemData) => {
-							return (
-								<View key={itemData.index} style={styles.goalItemContainer}>
-									<Text style={styles.goalItemHeader}>
-										Goal {itemData.index + 1}:
-									</Text>
-									<Text style={styles.goalItemText}>{itemData.item}</Text>
-								</View>
-							);
 						}}
 					/>
 					<Text style={styles.endOfList}>End of list.</Text>
-				</ScrollView>
 			</View>
 		</View>
 	);
